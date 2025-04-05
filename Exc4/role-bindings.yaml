@@ -1,0 +1,62 @@
+---
+# Привязка роли superadmin
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: superadmin-binding
+subjects:
+  - kind: User
+    name: superadmin
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: superadmin
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+# Привязка роли devops
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: devops-binding
+subjects:
+  - kind: User
+    name: devops
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: devops
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+# Привязка роли dev
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: dev-binding
+subjects:
+  - kind: User
+    name: dev
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: dev
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+# Привязка роли readonly
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: readonly-binding
+subjects:
+  - kind: User
+    name: readonly
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: readonly
+  apiGroup: rbac.authorization.k8s.io
